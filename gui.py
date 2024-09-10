@@ -1,11 +1,19 @@
 from PyQt6.QtWidgets import QApplication, QWidget
+from qt_setup import Ui_Form
+import sys
 
-# create the QApplication
-app = QApplication([])
+class Login(QWidget):
+    def __init__(self):
+        super().__init__()
 
-# create the main window
-window = QWidget(windowTitle='Hello World')
-window.show()
+        self.ui = Ui_Form()       
+        self.ui.setupUi(self)       
+        
+        # show the lwindow
+        self.show()
+    
 
-# start the event loop
-app.exec()
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    login_window = Login()
+    sys.exit(app.exec())
