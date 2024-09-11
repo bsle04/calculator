@@ -7,13 +7,21 @@ class Login(QWidget):
         super().__init__()
 
         self.ui = Ui_Form()       
-        self.ui.setupUi(self)       
-        
-        # show the lwindow
-        self.show()
+        self.ui.setupUi(self)
+
+    def setDisplayText(self, text):
+        self.ui.textBrowser.setText(text)
+    
+    def displayText(self):
+        return self.display.text()
+    
+    def clearDisplay(self):
+        self.setDisplayText("")
     
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     login_window = Login()
+    login_window.show()
+    login_window.setDisplayText("Test")
     sys.exit(app.exec())
